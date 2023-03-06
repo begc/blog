@@ -93,6 +93,9 @@ addr-gen-mode=eui64
 method=auto
 
 [proxy]
+
+nmcli c reload                         # 重新加载配置文件
+nmcli c up ens160                      # 重启ens160网卡
 ```
 ## 4、测试网络
 ```xml
