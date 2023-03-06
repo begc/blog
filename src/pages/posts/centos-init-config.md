@@ -131,6 +131,7 @@ vim /etc/hostname
 node01
 vi /etc/hosts
 192.168.0.120 node01
+如果是多服务器搭建集群，也需更改对应ip地址与hostname
 rebbot
 ```
 ## 6、关闭防火墙
