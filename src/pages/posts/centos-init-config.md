@@ -150,6 +150,24 @@ systemctl restart firewalld
 ```xml
 vim /etc/selinux/config 
 selinux  disabled
+or
+确认grubby软件包是否已经安装
+
+# rpm -q grubby
+
+要永久禁用 SELinux：
+
+配置您的引导加载程序以添加selinux=0到内核​​命令行：
+
+# grubby --update-kernel ALL --args selinux=0
+
+重新启动系统：
+
+# reboot
+
+确认
+
+重启后，getenforce命令确认返回结果为Disabled
 ```
 ## 8、时间同步
 ```xml
