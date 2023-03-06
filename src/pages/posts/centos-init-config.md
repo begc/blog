@@ -190,6 +190,11 @@ hwclock -w
 ```
 ## 9、安装 JDK
 ```xml
+事先查看是否自带jdk
+通过命令查看系统已安装的jdk
+rpm -qa | grep java  或 rpm -qa | grep jdk 命令来查询出系统自带的jdk（蓝框的四个就是系统自带的）注：其余的不要删
+rpm -e --nodeps   后面跟系统自带的jdk名    这个命令来删除系统自带的jdk，
+安装jdk
 rpm -i   jdk-8u181-linux-x64.rpm	
 		*有一些软件只认：/usr/java/default
 	vi /etc/profile     
