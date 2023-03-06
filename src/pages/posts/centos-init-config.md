@@ -204,8 +204,23 @@ rpm -i   jdk-8u181-linux-x64.rpm
 ```
 ## 10、配置 ssh 免密（还需查询）
 ```xml
-ssh  localhost  1,验证自己还没免密  2,被动生成了  /root/.ssh
-		ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
-		cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
+1、确认本机sshd的配置文件（需要root权限）
+	vi /etc/ssh/sshd_config
+2、AuthorizedKeysFile .ssh/authorized_keys  去掉#键
+3、systemctl restart sshd（如果修改了的话，需要重新启动）
+4、成公钥和私钥 （这里不需要root权限，使用的账户执行）
+	ssh-keygen -t rsa （我直接Enter，简单粗暴）
+5、默认在 ~/.ssh目录生成两个文件：
+	id_rsa ：私钥
+	id_rsa.pub ：公钥
+6、导入本机
+	cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+7、导入要免密码登录的服务器
+	首先将公钥复制到服务器，scp ~/.ssh/id_rsa.pub xxx@host:/home/id_rsa.pub
+	然后，将公钥导入到认证文件(这一步的操作在服务器上进行)
+	cat /home/id_rsa.pub >> ~/.ssh/authorized_keys
+8、在服务器上更改权限 (很重要，如果不这么设置，就是不让你免密登录)
+	chmod 700 ~/.ssh
+	chmod 600 ~/.ssh/authorized_keys
 ```
 
