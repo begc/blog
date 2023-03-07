@@ -146,6 +146,8 @@ systemctl start firewalld
 systemctl stop firewalld
 重启防火墙
 systemctl restart firewalld
+永久关闭防火墙
+systemctl disable firewalld
 ```
 ## 7、关闭seLINUX
 ```xml
