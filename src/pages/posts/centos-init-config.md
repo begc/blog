@@ -13,6 +13,8 @@ theme: 'light'
 featured: true
 ---
 ## 1、 使用国内镜像源
+### 使用的设备为 parallels desktop, centos stream9,
+### mac 笔记本arm架构可用
 ```xml
 cat >  /etc/yum.repos.d/centos.repo << EOF 
 
