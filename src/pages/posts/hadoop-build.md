@@ -1,3 +1,16 @@
+---
+layout: '../../layouts/MarkdownPost.astro'
+title: 'HADOOP_HDFS搭建'
+pubDate: 2023-03-08
+description: '学习搭建hadoop_hdfs'
+cover:
+    url: 'https://pic.lookcos.cn/i/usr/uploads/2022/04/2067928922.png'
+    square: 'https://pic.lookcos.cn/i/usr/uploads/2022/04/2067928922.png'
+    alt: 'cover'
+tags: ["源码研究", "hadoop"]
+theme: 'light'
+featured: false
+---
  # Hadoop-HDFS 搭建学习(单机、伪分布式以及高可用模式)
 2023-03-08 16:57
 
