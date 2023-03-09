@@ -4,8 +4,8 @@ title: 'HADOOP_HDFS搭建'
 pubDate: 2023-03-08
 description: '学习搭建hadoop_hdfs'
 cover:
-    url: 'https://pic.lookcos.cn/i/usr/uploads/2022/04/2067928922.png'
-    square: 'https://pic.lookcos.cn/i/usr/uploads/2022/04/2067928922.png'
+    url: 'https://p.ipic.vip/i7jtoj.png'
+    square: 'https://p.ipic.vip/i7jtoj.png'
     alt: 'cover'
 tags: ["源码研究", "hadoop"]
 theme: 'light'

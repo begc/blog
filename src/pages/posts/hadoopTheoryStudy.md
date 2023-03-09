@@ -4,8 +4,8 @@ title: 'HADOOP理论学习'
 pubDate: 2023-03-08
 description: '学习搭建hadoop_hdfs'
 cover:
-    url: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Hadoop_logo.svg'
-    square: 'hhttps://upload.wikimedia.org/wikipedia/commons/0/0e/Hadoop_logo.svg'
+    url: 'https://p.ipic.vip/i7jtoj.png'
+    square: 'https://p.ipic.vip/i7jtoj.png'
     alt: 'cover'
 tags: ["源码研究", "hadoop"]
 theme: 'light'
