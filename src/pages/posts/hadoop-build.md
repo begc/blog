@@ -18,17 +18,17 @@ featured: false
 
 ### 一、搭建伪分布式hadoop(所有角色设在一个节点)
 #### 1. 在集群中，首先创建新的文件目录
-```zsh
+```xml
 mkdir /opt/bigdata
 ```
 ![创建目录如下 |inline](https://p.ipic.vip/5i998v.png)	
 #### 2. 从sftp上传hadoop jar包，并解压到bigdata 目录下
-```zsh
+```xml
 tar -xf hadoop-2.6.5.tar.gz
 ```
 ![解压后如下图 |inline](https://p.ipic.vip/53w9l5.png)
 #### 3.修改环境变量
-```zsh
+```xml
 vim /etc/profile	
 export  JAVA_HOME=/usr/java/default
 export  HADOOP_HOME=/opt/bigdata/hadoop-2.6.5
@@ -37,7 +37,7 @@ source /etc/profile
 ```
 #### 4.配置hadoop的角色
 	4.1 必须给hadoop配置javahome要不ssh过去找不到
-```zsh
+```xml
 cd $HADOOP_HOME/etc/hadoop
 vim hadoop-env.sh
 export JAVA_HOME=/usr/java/default
@@ -78,12 +78,12 @@ vim hdfs-site.xml
 以上的配置信息可参考官网 [单节点配置hadoop信息](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html)
 
 	4.3 配置 DN 这个角色在哪里启动
-```zsh
+```xml
 	vim slaves
 		node01
 ```
 #### 5.初始化并启动
-```zsh
+```xml
 hdfs namenode -format  
 		创建目录
 		并初始化一个空的fsimage
@@ -92,7 +92,7 @@ start-dfs.sh
 ```
 ![去目录下查看 |inline](https://p.ipic.vip/etostl.png)
 #### 6.更改电脑 hosts 文件，配置与服务器相同的ip地址与hostname做对应
-```zsh
+```xml
 vim /etc/hosts
 node01 10.211.55.101
 node02 10.211.55.102
@@ -102,14 +102,14 @@ node04 10.211.55.104
 #### 7.打开 http://node01:50070
 ![如下界面则为成功 |inline](https://p.ipic.vip/en80ow.png)
 #### 8.简单使用
-```zsh
+```xml
 hdfs dfs -mkdir /bigdata
 hdfs dfs -mkdir  -p  /user/root
 ```
 
 ### 二、搭建完全分布式集群hadoop(全部角色在一个节点)
 #### 1.角色重新规划
-```zsh 
+```xml 
 stop-dfs.sh
 ```
 	1.1为什么要配置免密？
@@ -143,21 +143,21 @@ stop-dfs.sh
 			</property>
 ```
 	1.3配置datanode启动节点
-```zsh
+```xml
 	vi slaves
 			node02
 			node03
 			node04
 ```
 	1.4 将数据分发至其余节点
-```zsh
+```xml
 			cd /opt
 			scp -r ./bigdata/  node02:`pwd`
 			scp -r ./bigdata/  node03:`pwd`
 			scp -r ./bigdata/  node04:`pwd`
 ```
 	1.5 格式化启动
-```zsh
+```xml
 			hdfs namenode -format
 			start-dfs.sh
 ```
@@ -254,7 +254,7 @@ hdfs-site.xml
 #### 3. 实操。
 	3.1 停止之前的集群
 	3.2 免密：node01,node02
-```zsh
+```xml
 		node02: 
 			cd ~/.ssh
 			ssh-keygen -t dsa -P '' -f ./id_dsa
@@ -265,7 +265,7 @@ hdfs-site.xml
 			cat node02.pub >> authorized_keys
 ```
 	3.3 zookeeper 集群搭建，需要jdk，部署在2,3,4
-```zsh
+```xml
 		node02:
 			tar xf zook....tar.gz
 			mv zoo...    /opt/bigdata
