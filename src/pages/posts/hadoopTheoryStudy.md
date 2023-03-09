@@ -20,7 +20,7 @@ featured: false
 #### 我有一万个元素(比如单词或元素)需要存储，如果查找某一个元素，最简单的遍历方式是什么？如果说我期望的复杂度是 O(4)呢？
 
 - 如果是从头查到尾，我们需要 O(n)的时间复杂度来查询。
-![数组查询，需要 O(N) |inline](https://p.ipic.vip/avdtgw.png)
+![数组查询，需要 O(N) |wide](https://p.ipic.vip/avdtgw.png)
 
 - 通过分支思想，将 10000 个元素取模，就可以达到 O(4)的复杂度。
 ![通过取模，直接复杂度变为 O(4) |inline](https://p.ipic.vip/jp8ozv.png)
