@@ -309,7 +309,7 @@ featured: false
 
 1.HDFS 元数据的一致性
 
-```xml
+
 客户端上传文件时，每一个数据块都会有一条元数据来唯一标识这个文件块，HDFS 通过fsimage和editslog记录这些元数据。
 fsimages是namenode中元数据完整的镜像，保存了最新的元数据检查点，在HDFS启动时加载fsimage的信息，包含了整个HDFS文件系统的所有目录和文件的信息。
 editslog记录客户端对HDFS的增加、删除、重命名、追加等操作。editlog主要是在NameNode已经启动情况下对HDFS进行的各种更新操作进行记录，HDFS客户端执行所有的写操作都会被记录到editlog中。
@@ -318,11 +318,11 @@ editslog记录客户端对HDFS的增加、删除、重命名、追加等操作�
 在edits logs满之前对内存和fsimage的数据做同步，只需要合并edits logs和fsimage上的数据即可，然后edits logs上的数据即可清除。而当edits logs满之后，文件的上传不能中断，所以将会往一个新的文件edits.new上写数据，而老的edits logs的合并操作将由secondNameNode来完成，在HA模式下，合并过程则由StandBy状态的NameNode来进行。
 
 以上，HDFS通过Fsimage，editlog在集群启动时将集群的状态恢复到关闭前的状态来保证元数据的一致性。
-```
+
 
 2.HDFS文件数据的一致性
 
-```xml
+
 HDFS通过checksum、租约机制、一致性模型来保证文件数据的一致性。
 
 checksum大致原理是HDFS会针对写入的数据进行校验，在读取数据是验证校验，如果两者不一致说明block数据有问题，会修复该block然后返回block数据。
@@ -330,7 +330,7 @@ checksum大致原理是HDFS会针对写入的数据进行校验，在读取数�
 租约机制大致原理是防止多个用户同时写同一个文件。当向HDFS中写入数据时需要获取namenode的租约，保证一个文件同时只有一个用户在操作。
 
 一致性模型中HDFS 为了性能牺牲了一些 Posix 要求保证文件系统读写数据可见，也就是数据写入后不保证立即可见，但保证最终可见。
-```
+
 
 ### 六、HDFS 高可用方案
 
