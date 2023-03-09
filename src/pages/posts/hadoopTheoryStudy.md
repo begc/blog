@@ -50,7 +50,7 @@ featured: false
   
   #### 受限于单机 IO 的瓶颈，开启多集群大数据时代。
   
-  ![big](https://p.ipic.vip/xuxemc.png)
+  ![|inline](https://p.ipic.vip/xuxemc.png)
   
   ### 总结：大数据的整体思想，分而治之，并行计算，计算向数据移动，数据本地话读取。
   
@@ -155,7 +155,7 @@ featured: false
 
 - 支持追加数据
   
-![inline](https://p.ipic.vip/kuauf8.jpg)
+![|inline](https://p.ipic.vip/kuauf8.jpg)
   副本为 2，存放 1，3；副本为 3，存放 2，4，5。
   
   #### 架构设计
@@ -174,7 +174,7 @@ featured: false
 
 - Client和NameNode交互文件元数据和DataNode交互文件block数据
   
-![inline](https://p.ipic.vip/7c0nsh.jpg)
+![|inline](https://p.ipic.vip/7c0nsh.jpg)
   
   #### 角色功能
 
@@ -244,7 +244,7 @@ featured: false
 
 - 根据配置文件设置edits log大小 fs.checkpoint.size 规定edits文件的最大值默认是64MB
   
-![inline](https://p.ipic.vip/xvwhdd.jpg)
+![|inline](https://p.ipic.vip/xvwhdd.jpg)
   
   #### BLOCK 的副本放置策略
 
@@ -284,7 +284,7 @@ featured: false
 - 当block传输完成，DN们各自向NN汇报，同时client继续传输下一个block
   所以，client的传输和block的汇报也是并行的。
 
-![inline](https://p.ipic.vip/n89ms7.jpg)
+![|inline](https://p.ipic.vip/n89ms7.jpg)
   
   #### HDFS读流程
 
@@ -360,7 +360,7 @@ checksum大致原理是HDFS会针对写入的数据进行校验，在读取数�
 
 - HADOOP 2.x 只支持HA的一主一备
   
-![inline](https://p.ipic.vip/uryjlf.jpg)
+![|inline](https://p.ipic.vip/uryjlf.jpg)
   
   #### CAP 原则
 
@@ -422,5 +422,5 @@ checksum大致原理是HDFS会针对写入的数据进行校验，在读取数�
 
 - DN目录隔离block
   
-![inline](https://p.ipic.vip/xvbfnx.jpg)
+![|inline](https://p.ipic.vip/xvbfnx.jpg)
   备注：可以自己开发一个文件系统，通过加前缀，区分不同项目组的元信息，达到复用与隔离的作用。
