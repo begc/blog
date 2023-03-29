@@ -7,7 +7,7 @@ cover:
     url: 'https://p.ipic.vip/i7jtoj.png'
     square: 'https://p.ipic.vip/i7jtoj.png'
     alt: 'cover'
-tags: ["源码研究", "hadoop"]
+tags: ["源码研究", "hadoop","理论学习"]
 theme: 'light'
 featured: false
 ---

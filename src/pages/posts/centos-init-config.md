@@ -8,7 +8,7 @@ cover:
     url: 'https://s2.loli.net/2023/03/06/wEurLNpQ52Ml71v.png'
     square: 'https://s2.loli.net/2023/03/06/wEurLNpQ52Ml71v.png'
     alt: 'cover'
-tags: ["源码研究", "Centos", "linux"] 
+tags: ["Centos", "linux","节点搭建"] 
 theme: 'light'
 featured: true
 ---
