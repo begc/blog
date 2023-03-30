@@ -81,6 +81,7 @@ yarn-site.xml
 		http://node04:8088
 ```
 ![启动后显示如上图|inline](https://p.ipic.vip/qon3o9.png)
+
 ![此为 standby节点|inline](https://p.ipic.vip/py50hp.png)
 ## MR 官方案例使用：wc
 	实战：MR ON YARN 的运行方式：
@@ -128,7 +129,9 @@ hdfs dfs -D dfs.blocksize=1048576  -put data.txt  /data/wc/input
         String[] othargs = parser.getRemainingArgs();
 
 ![|inline](https://p.ipic.vip/ewgul3.png)
+
 ![|inline](https://p.ipic.vip/6oux1x.png)
+
 ![|inline](https://p.ipic.vip/dq0xou.png)
 
 

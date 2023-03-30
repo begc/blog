@@ -7,7 +7,7 @@ cover:
     url: 'https://p.ipic.vip/nfbxie.jpg'
     square: 'https://p.ipic.vip/nfbxie.jpg'
     alt: 'cover'
-tags: ["hadoop","理论学习"]
+tags: ["hadoop","理论学习","源码研究"]
 theme: 'light'
 featured: false
 ---
