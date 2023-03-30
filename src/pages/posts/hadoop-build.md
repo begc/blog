@@ -1,8 +1,8 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: 'HADOOP_MAPREDUCE搭建'
+title: 'HADOOP_HDFS搭建'
 pubDate: 2023-03-08
-description: '学习搭建hadoop_mapreduce'
+description: '学习搭建hadoop_hdfs'
 cover:
     url: 'https://p.ipic.vip/i7jtoj.png'
     square: 'https://p.ipic.vip/i7jtoj.png'
