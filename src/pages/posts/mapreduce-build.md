@@ -80,8 +80,8 @@ yarn-site.xml
 		http://node03:8088
 		http://node04:8088
 ```
-![启动后显示如上图](https://p.ipic.vip/qon3o9.png)
-![此为 standby节点](https://p.ipic.vip/py50hp.png)
+![启动后显示如上图|inline](https://p.ipic.vip/qon3o9.png)
+![此为 standby节点|inline](https://p.ipic.vip/py50hp.png)
 ## MR 官方案例使用：wc
 	实战：MR ON YARN 的运行方式：
 ```xml 	hdfs dfs -mkdir -p   /data/wc/input
@@ -100,7 +100,7 @@ hdfs dfs -D dfs.blocksize=1048576  -put data.txt  /data/wc/input
 		hdfs dfs -cat  /data/wc/output/part-r-00000
 		hdfs dfs -get  /data/wc/output/part-r-00000  ./
 ```
-![运行后结果为上图](https://p.ipic.vip/u0nm1f.png)
+![运行后结果为上图|inline](https://p.ipic.vip/u0nm1f.png)
 ## MR 提交方式
 
 	1.开发-> jar  -> 上传到集群中的某一个节点 -> hadoop jar  ooxx.jar  ooxx  in out
@@ -127,8 +127,8 @@ hdfs dfs -D dfs.blocksize=1048576  -put data.txt  /data/wc/input
 	GenericOptionsParser parser = new GenericOptionsParser(conf, args);  //工具类帮我们把-D 等等的属性直接set到conf，会留下commandOptions
         String[] othargs = parser.getRemainingArgs();
 
-![](https://p.ipic.vip/ewgul3.png)
-![](https://p.ipic.vip/6oux1x.png)
-![](https://p.ipic.vip/dq0xou.png)
+![|inline](https://p.ipic.vip/ewgul3.png)
+![|inline](https://p.ipic.vip/6oux1x.png)
+![|inline](https://p.ipic.vip/dq0xou.png)
 
 

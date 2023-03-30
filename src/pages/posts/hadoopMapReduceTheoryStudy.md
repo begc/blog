@@ -31,15 +31,15 @@ featured: false
   
   - 键值对的键划分数据分组
 
-![](https://p.ipic.vip/npofu2.png)
+![|inline](https://p.ipic.vip/npofu2.png)
 
 ## 二、MapReduce 的架构
 
-![](https://p.ipic.vip/vrz0un.png)
+![|inline](https://p.ipic.vip/vrz0un.png)
 
 数据以一条记录为单位，经过map方法映射成kv，相同的key为一组，这一组数据调用一次reduce方法，在方法内迭代计算着一组数据。大量的数据集一般用迭代器模式。
 
-![](https://p.ipic.vip/9ay0be.jpg)
+![|inline](https://p.ipic.vip/9ay0be.jpg)
 ```xml
 1.切片会格式化出记录，以记录为单位调用map方法。
 
@@ -55,7 +55,7 @@ featured: false
 
 ## 三、mapreduce on yarn
 
-![](https://p.ipic.vip/vts2jg.jpg)
+![|inline](https://p.ipic.vip/vts2jg.jpg)
 
 ## 1.Yarn模型
 
@@ -138,7 +138,7 @@ MR运行  MapReduce On Yarn
 
 ## Client
 
-![](https://p.ipic.vip/w6x3cz.png)  
+![|inline](https://p.ipic.vip/w6x3cz.png)  
 
  没有计算发生         很重要：支撑了计算向数据移动和计算的并行度         
 
@@ -176,7 +176,7 @@ if ((blkLocations[i].getOffset() <= offset < blkLocations[i].getOffset() + blkLo
             4，hosts    //支撑的计算向数据移动
 ```
 
-![](https://p.ipic.vip/ishfu0.png)
+![|inline](https://p.ipic.vip/ishfu0.png)
 
 ## MapTask
 ### intput
@@ -205,7 +205,7 @@ nextKeyValue():
     getCurrentValue():
 ```
 
-![](https://p.ipic.vip/28nyh9.png)
+![|inline](https://p.ipic.vip/28nyh9.png)
 
 ### output：
 ```xml
