@@ -15,58 +15,74 @@ featured: true
 ## 1、 使用国内镜像源
 ### 使用的设备为 parallels desktop, centos stream9,
 ### mac 笔记本arm架构可用
+
+进入  /etc/yum.repos.d/centos.repo
+
+备份源配置 mv /etc/yum.repos.d/centos.repo /etc/yum.repos.d/centos.repo.backup
+
+阿里源配置
 ```xml
-cat >  /etc/yum.repos.d/centos.repo << EOF 
+# CentOS-Base.repo
+#
+# The mirror system uses the connecting IP address of the client and the
+# update status of each mirror to pick mirrors that are updated to and
+# geographically close to the client.  You should use this for CentOS updates
+# unless you are manually picking other mirrors.
+#
+# If the mirrorlist= does not work for you, as a fall back you can try the 
+# remarked out baseurl= line instead.
+#
+#
+ 
+[base]
+name=CentOS-$releasever - Base - mirrors.aliyun.com
+#failovermethod=priority
+baseurl=https://mirrors.aliyun.com/centos-stream/$stream/BaseOS/$basearch/os/
+        http://mirrors.aliyuncs.com/centos-stream/$stream/BaseOS/$basearch/os/
+        http://mirrors.cloud.aliyuncs.com/centos-stream/$stream/BaseOS/$basearch/os/
+gpgcheck=1
+gpgkey=https://mirrors.aliyun.com/centos-stream/RPM-GPG-KEY-CentOS-Official
+ 
+#additional packages that may be useful
+#[extras]
+#name=CentOS-$releasever - Extras - mirrors.aliyun.com
+#failovermethod=priority
+#baseurl=https://mirrors.aliyun.com/centos-stream/$stream/extras/$basearch/os/
+#        http://mirrors.aliyuncs.com/centos-stream/$stream/extras/$basearch/os/
+#        http://mirrors.cloud.aliyuncs.com/centos-stream/$stream/extras/$basearch/os/
+#gpgcheck=1
+#gpgkey=https://mirrors.aliyun.com/centos-stream/RPM-GPG-KEY-CentOS-Official
+ 
+#additional packages that extend functionality of existing packages
+[centosplus]
+name=CentOS-$releasever - Plus - mirrors.aliyun.com
+#failovermethod=priority
+baseurl=https://mirrors.aliyun.com/centos-stream/$stream/centosplus/$basearch/os/
+        http://mirrors.aliyuncs.com/centos-stream/$stream/centosplus/$basearch/os/
+        http://mirrors.cloud.aliyuncs.com/centos-stream/$stream/centosplus/$basearch/os/
+gpgcheck=1
+enabled=0
+gpgkey=https://mirrors.aliyun.com/centos-stream/RPM-GPG-KEY-CentOS-Official
+ 
+[PowerTools]
+name=CentOS-$releasever - PowerTools - mirrors.aliyun.com
+#failovermethod=priority
+baseurl=https://mirrors.aliyun.com/centos-stream/$stream/PowerTools/$basearch/os/
+        http://mirrors.aliyuncs.com/centos-stream/$stream/PowerTools/$basearch/os/
+        http://mirrors.cloud.aliyuncs.com/centos-stream/$stream/PowerTools/$basearch/os/
+gpgcheck=1
+enabled=0
+gpgkey=https://mirrors.aliyun.com/centos-stream/RPM-GPG-KEY-CentOS-Official
+
 
 [AppStream]
-name=CentOS-\$releasever - AppStream - mirrors.ustc.edu.cn
+name=CentOS-$releasever - AppStream - mirrors.aliyun.com
 #failovermethod=priority
-baseurl=https://mirrors.ustc.edu.cn/centos-stream/\$stream/AppStream/\$basearch/os/
+baseurl=https://mirrors.aliyun.com/centos-stream/$stream/AppStream/$basearch/os/
+        http://mirrors.aliyuncs.com/centos-stream/$stream/AppStream/$basearch/os/
+        http://mirrors.cloud.aliyuncs.com/centos-stream/$stream/AppStream/$basearch/os/
 gpgcheck=1
-gpgkey=https://mirrors.ustc.edu.cn/centos-stream/RPM-GPG-KEY-CentOS-Official
-
-[BaseOS]
-name=CentOS-\$releasever - BaseOS - mirrors.ustc.edu.cn
-#failovermethod=priority
-baseurl=https://mirrors.ustc.edu.cn/centos-stream/\$stream/BaseOS/\$basearch/os/
-gpgcheck=1
-gpgkey=https://mirrors.ustc.edu.cn/centos-stream/RPM-GPG-KEY-CentOS-Official
-
-[CRB]
-name=CentOS-\$releasever - CRB - mirrors.ustc.edu.cn
-#failovermethod=priority
-baseurl=https://mirrors.ustc.edu.cn/centos-stream/\$stream/CRB/\$basearch/os/
-gpgcheck=1
-gpgkey=https://mirrors.ustc.edu.cn/centos-stream/RPM-GPG-KEY-CentOS-Official
-
-[HighAvailability]
-name=CentOS-\$releasever - HighAvailability - mirrors.ustc.edu.cn
-#failovermethod=priority
-baseurl=https://mirrors.ustc.edu.cn/centos-stream/\$stream/HighAvailability/\$basearch/os/
-gpgcheck=1
-gpgkey=https://mirrors.ustc.edu.cn/centos-stream/RPM-GPG-KEY-CentOS-Official
-
-[NFV]
-name=CentOS-\$releasever - NFV - mirrors.ustc.edu.cn
-#failovermethod=priority
-baseurl=https://mirrors.ustc.edu.cn/centos-stream/\$stream/NFV/\$basearch/os/
-gpgcheck=1
-gpgkey=https://mirrors.ustc.edu.cn/centos-stream/RPM-GPG-KEY-CentOS-Official
-
-[RT]
-name=CentOS-\$releasever - RT - mirrors.ustc.edu.cn
-#failovermethod=priority
-baseurl=https://mirrors.ustc.edu.cn/centos-stream/\$stream/RT/\$basearch/os/
-gpgcheck=1
-gpgkey=https://mirrors.ustc.edu.cn/centos-stream/RPM-GPG-KEY-CentOS-Official
-
-[ResilientStorage]
-name=CentOS-\$releasever - ResilientStorage - mirrors.ustc.edu.cn
-#failovermethod=priority
-baseurl=https://mirrors.ustc.edu.cn/centos-stream/\$stream/ResilientStorage/\$basearch/os/
-gpgcheck=1
-gpgkey=https://mirrors.ustc.edu.cn/centos-stream/RPM-GPG-KEY-CentOS-Official
-EOF
+gpgkey=https://mirrors.aliyun.com/centos-stream/RPM-GPG-KEY-CentOS-Official
 ```
 ## 2、更新源信息
 ```xml
