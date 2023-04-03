@@ -67,3 +67,17 @@ alter user 'root'@'localhost' identified by '95uoh16j';
 ![](https://p.ipic.vip/h670q0.png)
 
 
+## 6、查看所有用户密码并允许远程登录
+
+```sql
+show databases;
+use mysql;
+select host,user,plugin,authentication_string from user;
+create user root@'%'' identified with mysql_native_password by '95uoh16j';
+grant all on *.* to root@'%' with grant option;
+#删除非 host 为%的用户
+delete from user where host != '%';
+#必须执行，否则不生效！！！
+flush privileges;
+```
+
