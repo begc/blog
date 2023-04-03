@@ -79,5 +79,9 @@ grant all on *.* to root@'%' with grant option;
 delete from user where host != '%';
 #必须执行，否则不生效！！！
 flush privileges;
+
+
+#注：mysql 8.0远程连接，在参数文件的[mysqld]下添加：/etc/my.cnf
+default_authentication_plugin=mysql_native_password
 ```
 
