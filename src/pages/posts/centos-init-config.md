@@ -212,22 +212,15 @@ or
 ## 8、时间同步
 
 ```xml
-dnf -y install chrony
+ 首先进到/etc/chrony.conf里面，添加如下两行，如图二所示
 
-vim /etc/chrony.conf
-在文件底部新添加一行 pool dlp.srv.world iburst
+server 210.72.145.44 iburst
+server ntp.aliyun.com iburst
 
-设置开机自启
-systemctl enable --now chronyd
+重新加载文件，同步时间，就能看到时间是正常的了
 
-查看状态
-chronyc sources
-#启用时间同步
-timedatectl set-ntp true
-#禁用时间同步
-timedatectl set-ntp false
-同步硬件状态
-hwclock -w
+systemctl restart chronyd.service	
+chronyc sources -y
 ```
 
 ## 9、安装 JDK
