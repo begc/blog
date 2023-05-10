@@ -89,6 +89,14 @@ baseurl=https://mirrors.aliyun.com/centos-stream/$stream/AppStream/$basearch/os/
         http://mirrors.cloud.aliyuncs.com/centos-stream/$stream/AppStream/$basearch/os/
 gpgcheck=1
 gpgkey=https://mirrors.aliyun.com/centos-stream/RPM-GPG-KEY-CentOS-Official
+
+
+
+rpm -e --nodeps `rpm -qa|grep centos`
+rpm -ivh --nodeps --force https://mirrors.aliyun.com/centos-stream/9-stream/BaseOS/x86_64/os/Packages/centos-stream-release-9.0-12.el9.noarch.rpm
+rpm -ivh --nodeps --force https://mirrors.aliyun.com/centos-stream/9-stream/BaseOS/x86_64/os/Packages/centos-gpg-keys-9.0-12.el9.noarch.rpm
+rpm -ivh --nodeps --force https://mirrors.aliyun.com/centos-stream/9-stream/BaseOS/x86_64/os/Packages/centos-stream-repos-9.0-12.el9.noarch.rpm
+dnf clean all
 ```
 
 ## 2、更新源信息
@@ -260,4 +268,32 @@ rpm -i   jdk-8u181-linux-x64.rpm
 8、在服务器上更改权限 (很重要，如果不这么设置，就是不让你免密登录)
     chmod 700 ~/.ssh
     chmod 600 ~/.ssh/authorized_keys
+
+每一台机器：ssh localhost   >> 为了拿到.ssh
+node01~node02:
+		cd /home/god/.ssh
+		ssh-keygen -t rsa -P '' -f  ./id_rsa
+node01:
+		ssh-copy-id -i id_rsa node01
+		ssh-copy-id -i id_rsa node02
+		ssh-copy-id -i id_rsa node03
+		ssh-copy-id -i id_rsa node04
+node02
+		cd /home/god/.ssh
+		ssh-copy-id -i id_rsa node01
+		ssh-copy-id -i id_rsa node02
+		ssh-copy-id -i id_rsa node03
+		ssh-copy-id -i id_rsa node04
+node03
+		cd /home/god/.ssh
+		ssh-copy-id -i id_rsa node01
+		ssh-copy-id -i id_rsa node02
+		ssh-copy-id -i id_rsa node03
+		ssh-copy-id -i id_rsa node04
+node04
+		cd /home/god/.ssh
+		ssh-copy-id -i id_rsa node01
+		ssh-copy-id -i id_rsa node02
+		ssh-copy-id -i id_rsa node03
+		ssh-copy-id -i id_rsa node04
 ```
